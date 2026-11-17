@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GenoTv · Invia alla TV</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,#141a3a,#0b0f1f); color:#fff; font-family:Roboto, system-ui, sans-serif; text-align:center; }
+  .box { max-width:420px; padding:28px 22px; }
+  .ico { font-size:56px; }
+  h1 { font-size:24px; margin:10px 0 8px; }
+  p { color:#c8cde6; line-height:1.5; }
+  a.btn { display:block; margin:22px 0 12px; padding:16px; border-radius:16px; background:#6c8cff; color:#fff; font-weight:700; font-size:17px; text-decoration:none; }
+  a.small { color:#9fb0ff; font-size:14px; }
+  .code { font-size:30px; letter-spacing:6px; font-weight:800; margin:6px 0; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="ico">📲➡️📺</div>
+  <h1>Invia GenoTv alla TV</h1>
+  <p>Tocca il pulsante: si apre GenoTv sul telefono e manda alla TV preferiti, liste e impostazioni.</p>
+  <div class="code" id="code"></div>
+  <a class="btn" id="go" href="#">Apri GenoTv e invia</a>
+  <a class="small" href="https://sgenovese37-lang.github.io/GenoTv/">Non hai GenoTv sul telefono? Scaricala qui</a>
+</div>
+<script>
+  var q = location.search.replace(/^\?/, "");
+  var m = q.match(/code=(\d{4})/);
+  if (m) document.getElementById("code").textContent = m[1];
+  var link = /android/i.test(navigator.userAgent)
+    ? "intent://send?" + q + "#Intent;scheme=genotv;package=it.stefano.lettoreiptv;S.browser_fallback_url=" + encodeURIComponent("https://sgenovese37-lang.github.io/GenoTv/") + ";end"
+    : "genotv://send?" + q;
+  document.getElementById("go").href = link;
+</script>
+</body>
+</html>
