@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GenoTv</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Canali TV gratuiti, guida TV e radio, tutto in un'app.">
+<meta name="theme-color" content="#0b0d1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GenoTv">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icone/icona-180.png">
+<link rel="icon" href="icone/icona-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-theme="notte">
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header id="top">
+  <div class="tb"><div><small id="hi"></small><h1 id="title">GenoTv</h1></div>
+    <button class="round glass" id="setBtn" aria-label="Impostazioni">⚙️</button></div>
+  <label class="search glass" id="searchBox"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Cerca un canale…" autocomplete="off"></label>
+  <div class="chips" id="chips"></div>
+</header>
+
+<main id="main"></main>
+
+<div id="mini" class="glass" hidden>
+  <img id="miniLogo" alt=""><div class="mm"><b id="miniName"></b><small id="miniSub"></small></div>
+  <button id="miniPlay" aria-label="Pausa">⏸</button><button id="miniStop" aria-label="Ferma">✕</button>
+</div>
+
+<nav id="tabs" class="glass">
+  <span id="pill"></span>
+  <button data-t="home" class="on"><span>🏠</span><b>Home</b></button>
+  <button data-t="tv"><span>📺</span><b>TV</b></button>
+  <button data-t="guida"><span>🕘</span><b>Guida</b></button>
+  <button data-t="radio"><span>📻</span><b>Radio</b></button>
+  <button data-t="mia"><span>📋</span><b>La mia lista</b></button>
+</nav>
+
+<div id="player" hidden>
+  <div class="pl-top"><button class="round glass" id="plClose" aria-label="Chiudi">⌄</button>
+    <div class="pl-t"><b id="plName"></b><small id="plNow"></small></div>
+    <button class="round glass" id="plFav" aria-label="Preferito">☆</button></div>
+  <div class="pl-v"><video id="video" playsinline webkit-playsinline controls autoplay></video><div class="pl-msg" id="plMsg"></div></div>
+  <div class="pl-act">
+    <button class="glass" id="plAir">📡 AirPlay</button><button class="glass" id="plPip">🗗 Picture in Picture</button><button class="glass" id="plVlc" hidden>▶ Apri con VLC</button>
+  </div>
+  <div class="pl-next" id="plNext"></div>
+</div>
+
+<div id="sheetBg"></div>
+<div id="sheet" class="glass"><div class="grab"></div><div id="shBody"></div></div>
+<div id="toast"></div>
+<audio id="audio" preload="none"></audio>
+
+<script src="app.js"></script>
+</body>
+</html>
