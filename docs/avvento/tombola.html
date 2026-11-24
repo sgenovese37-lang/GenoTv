@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎲 La tombola di Natale · Calendario dell'Avvento GenoTv</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1020">
+<link rel="stylesheet" href="stile.css">
+
+</head>
+<body>
+<div class="snow"></div>
+<main>
+<span class="day">🎄 19 dicembre</span>
+<h1>🎲 La tombola di Natale</h1>
+<p class="lead">Il tabellone per giocare a tombola con tutta la famiglia: estrai i numeri, li legge anche ad alta voce. E puoi creare le cartelle da stampare.</p>
+
+<style>
+.top { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.ball { width:120px; height:120px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#fff,#ffe1a1 40%,#e0a326); color:#3a2500; display:flex; align-items:center; justify-content:center; font:900 52px Georgia,serif; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+.ball.pop { animation:pop .5s cubic-bezier(.3,1.6,.5,1); } @keyframes pop { from { transform:scale(.3) rotate(-90deg); } }
+.board { display:grid; grid-template-columns:repeat(10,1fr); gap:5px; margin-top:16px; }
+.board span { aspect-ratio:1; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#0f1428; border:1px solid var(--line); font-weight:700; font-size:14px; color:#6c7598; }
+.board span.on { background:var(--gold); color:#2a1d05; border-color:var(--gold); }
+.board span.last { background:var(--red); color:#fff; border-color:var(--red); }
+.acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+.cards { display:grid; gap:14px; margin-top:14px; }
+table.c { width:100%; border-collapse:collapse; background:#fff; color:#222; border-radius:10px; overflow:hidden; table-layout:fixed; }
+table.c td { border:1px solid #c9a24a; height:38px; text-align:center; font:700 17px Georgia,serif; }
+table.c td.e { background:#f6ead0; }
+@media print { body * { visibility:hidden; } #cards, #cards * { visibility:visible; } #cards { position:absolute; left:0; top:0; width:100%; } table.c { margin-bottom:16px; page-break-inside:avoid; } }
+</style>
+<div class="card">
+<div class="top"><div class="ball" id="ball">🎄</div><div><b id="count">Pronto a giocare!</b><br><span class="muted" id="lasts">Tocca «Estrai» per il primo numero</span></div></div>
+<div class="acts"><button class="btn" id="draw">🎲 Estrai</button><button class="btn ghost" id="voice">🔊 Voce: sì</button><button class="btn ghost" id="reset">↻ Nuova partita</button></div>
+<div class="board" id="board"></div>
+</div>
+<h2>🧾 Le cartelle</h2>
+<div class="card"><p style="margin-top:0">Crea le cartelle per i giocatori: ognuna ha 15 numeri, come quelle vere. Poi stampale o mostrale sul telefono.</p>
+<div class="acts"><button class="btn" id="mk">✨ Crea 6 cartelle</button><button class="btn ghost" onclick="print()">🖨️ Stampa le cartelle</button></div>
+<div class="cards" id="cards"></div></div>
+
+<p class="foot">Un regalo del <b>Calendario dell'Avvento di GenoTv</b> · di Geno85<br>Torna nell'app per aprire la prossima casella 🎁</p>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let left = [], drawn = [], voice = true;
+const B = $("board"); for (let n = 1; n <= 90; n++) { const s = document.createElement("span"); s.id = "n" + n; s.textContent = n; B.appendChild(s); }
+function reset() { left = Array.from({ length: 90 }, (_, k) => k + 1); drawn = []; document.querySelectorAll(".board span").forEach(s => s.className = ""); $("ball").textContent = "🎄"; $("count").textContent = "Pronto a giocare!"; $("lasts").textContent = "Tocca «Estrai» per il primo numero"; }
+function say(n) { try { if (!voice || !window.speechSynthesis) return; const u = new SpeechSynthesisUtterance(String(n)); u.lang = "it-IT"; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+$("draw").onclick = () => {
+  if (!left.length) { $("count").textContent = "Tutti i 90 numeri sono usciti! 🎉"; return; }
+  const n = left.splice(Math.floor(Math.random() * left.length), 1)[0]; drawn.push(n);
+  document.querySelectorAll(".board span.last").forEach(s => s.classList.remove("last"));
+  $("n" + n).classList.add("on", "last");
+  const b = $("ball"); b.textContent = n; b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop");
+  $("count").textContent = "Numeri usciti: " + drawn.length + " su 90"; $("lasts").textContent = "Ultimi: " + drawn.slice(-5).reverse().join(" · ");
+  say(n);
+};
+$("voice").onclick = () => { voice = !voice; $("voice").textContent = "🔊 Voce: " + (voice ? "sì" : "no"); };
+$("reset").onclick = () => { if (!drawn.length || confirm("Ricominciare la partita?")) reset(); };
+// Cartella: 3 righe x 9 colonne, 5 numeri per riga, colonne 1-9, 10-19 … 80-90
+function cartella() {
+  for (let t = 0; t < 200; t++) {
+    const rows = [0, 1, 2].map(() => { const c = []; while (c.length < 5) { const k = Math.floor(Math.random() * 9); if (!c.includes(k)) c.push(k); } return c; });
+    const cols = Array.from({ length: 9 }, (_, k) => rows.filter(r => r.includes(k)).length);
+    if (cols.some(x => x === 0)) continue;
+    const grid = [0, 1, 2].map(() => Array(9).fill(0));
+    for (let k = 0; k < 9; k++) {
+      const lo = k === 0 ? 1 : k * 10, hi = k === 8 ? 90 : k * 10 + 9, pool = []; for (let n = lo; n <= hi; n++) pool.push(n);
+      const pick = []; while (pick.length < cols[k]) { const n = pool.splice(Math.floor(Math.random() * pool.length), 1)[0]; pick.push(n); }
+      pick.sort((a, b) => a - b); let j = 0; for (let r = 0; r < 3; r++) if (rows[r].includes(k)) grid[r][k] = pick[j++];
+    }
+    return grid;
+  }
+}
+$("mk").onclick = () => { $("cards").innerHTML = Array.from({ length: 6 }, () => "<table class='c'>" + cartella().map(r => "<tr>" + r.map(n => n ? "<td>" + n + "</td>" : "<td class='e'></td>").join("") + "</tr>").join("") + "</table>").join(""); };
+reset();
+</script>
+</body>
+</html>

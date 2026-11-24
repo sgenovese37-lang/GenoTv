@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧠 Il quiz di Natale · Calendario dell'Avvento GenoTv</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1020">
+<link rel="stylesheet" href="stile.css">
+
+</head>
+<body>
+<div class="snow"></div>
+<main>
+<span class="day">🎄 11 dicembre</span>
+<h1>🧠 Il quiz di Natale</h1>
+<p class="lead">Dieci domande su tradizioni e curiosità. Sfida la famiglia: chi fa più punti?</p>
+
+<style>
+.opts { display:grid; gap:10px; margin-top:12px; }
+.opt { text-align:left; font:inherit; font-weight:600; color:var(--txt); background:#0f1428; border:2px solid var(--line); border-radius:14px; padding:13px 14px; cursor:pointer; }
+.opt.ok { border-color:var(--green); background:#16301f; } .opt.no { border-color:var(--red); background:#351619; }
+.prog { height:8px; border-radius:8px; background:#0f1428; overflow:hidden; margin-bottom:14px; } .prog i { display:block; height:100%; background:var(--gold); transition:width .3s; }
+#exp { margin-top:12px; } .big { font-size:56px; text-align:center; margin:6px 0; }
+</style>
+<div class="card" id="box"></div>
+
+<p class="foot">Un regalo del <b>Calendario dell'Avvento di GenoTv</b> · di Geno85<br>Torna nell'app per aprire la prossima casella 🎁</p>
+</main>
+<script>const Q = [["In quale paese è nata la tradizione dell'albero di Natale come lo conosciamo oggi?", ["Italia", "Germania", "Francia"], 1, "Le prime testimonianze di abeti decorati in casa arrivano dalla Germania e dalle zone vicine, già nel Cinquecento."], ["Chi porta i regali ai bambini italiani la notte del 5 gennaio?", ["Santa Lucia", "Gesù Bambino", "La Befana"], 2, "La Befana arriva la notte dell'Epifania: dolci ai bambini buoni e carbone a quelli monelli!"], ["Quante sono le renne di Babbo Natale, contando anche Rudolph?", ["7", "9", "12"], 1, "Sono otto più Rudolph, quella con il naso rosso che illumina la strada nelle notti di nebbia."], ["In quale città della Finlandia c'è il villaggio di Babbo Natale?", ["Rovaniemi", "Helsinki", "Oulu"], 0, "Rovaniemi si trova proprio sul Circolo polare artico, in Lapponia."], ["Chi realizzò il primo presepe vivente, a Greccio, nel 1223?", ["Sant'Antonio", "San Francesco d'Assisi", "San Nicola"], 1, "San Francesco volle rappresentare la nascita di Gesù in una grotta, con un bue e un asinello veri."], ["In che anno Charles Dickens scrisse «Canto di Natale»?", ["1843", "1901", "1789"], 0, "Il racconto di Scrooge uscì nel dicembre del 1843 e fu un successo immediato."], ["Quale dolce di Natale è nato a Milano?", ["Pandoro", "Panforte", "Panettone"], 2, "Il panettone è milanese, il pandoro è di Verona e il panforte di Siena."], ["In quale paese fu cantata per la prima volta «Stille Nacht» (Astro del ciel)?", ["Austria", "Svizzera", "Inghilterra"], 0, "Fu cantata la notte di Natale del 1818 nella chiesa di Oberndorf, vicino a Salisburgo."], ["Da dove viene la parola «Natale»?", ["Dal greco, «luce»", "Dal latino, «della nascita»", "Dal tedesco, «festa»"], 1, "Deriva dal latino «natalis», cioè «che riguarda la nascita»."], ["In Giappone molte famiglie festeggiano la vigilia di Natale mangiando…", ["Sushi di salmone", "Pollo fritto", "Ramen"], 1, "È una tradizione nata negli anni '70 con una pubblicità: ancora oggi bisogna prenotare il pollo fritto settimane prima!"]];
+const box = document.getElementById("box"); let i = 0, pts = 0;
+const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+function show() {
+  if (i >= Q.length) {
+    const msg = pts === 10 ? "Perfetto! Sei un vero elfo di Babbo Natale 🧝" : pts >= 7 ? "Bravissimo! Ne sai davvero tanto 🎄" : pts >= 4 ? "Niente male! L'anno prossimo andrà ancora meglio ⭐" : "Il Natale è pieno di sorprese… anche le risposte! 😄";
+    box.innerHTML = `<div class="big">${pts >= 7 ? "🏆" : "🎁"}</div><h2 style="text-align:center;margin-top:0">${pts} su ${Q.length}</h2><p style="text-align:center">${msg}</p><div style="text-align:center"><button class="btn" id="again">↻ Gioca ancora</button></div>`;
+    document.getElementById("again").onclick = () => { i = 0; pts = 0; show(); }; return;
+  }
+  const [q, o, ok, ex] = Q[i];
+  box.innerHTML = `<div class="prog"><i style="width:${i / Q.length * 100}%"></i></div><p class="muted" style="margin:0">Domanda ${i + 1} di ${Q.length} · Punti: ${pts}</p><h2 style="margin-top:6px;color:var(--txt)">${esc(q)}</h2><div class="opts">${o.map((t, k) => `<button class="opt" data-k="${k}">${esc(t)}</button>`).join("")}</div><div id="exp"></div>`;
+  box.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    const k = +b.dataset.k; box.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.k === ok) x.classList.add("ok"); });
+    if (k === ok) pts++; else b.classList.add("no");
+    document.getElementById("exp").innerHTML = `<p>${k === ok ? "✅ Giusto!" : "❌ Peccato!"} ${esc(ex)}</p><button class="btn" id="next">${i + 1 < Q.length ? "Avanti ›" : "Vedi il risultato"}</button>`;
+    document.getElementById("next").onclick = () => { i++; show(); }; document.getElementById("next").focus();
+  });
+}
+show();
+</script>
+</body>
+</html>
