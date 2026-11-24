@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>✉️ La lettera a Babbo Natale · Calendario dell'Avvento GenoTv</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1020">
+<link rel="stylesheet" href="stile.css">
+
+</head>
+<body>
+<div class="snow"></div>
+<main>
+<span class="day">🎄 9 dicembre</span>
+<h1>✉️ La lettera a Babbo Natale</h1>
+<p class="lead">Scrivi la tua letterina: GenoTv la trasforma in una lettera vera, da salvare, stampare o mandare ai nonni.</p>
+
+<style>
+label { display:block; font-weight:700; margin:14px 0 6px; }
+input, textarea { width:100%; font:inherit; color:var(--txt); background:#0f1428; border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+textarea { min-height:170px; resize:vertical; }
+.row { display:flex; gap:10px; } .row > div { flex:1; }
+.chk { display:flex; align-items:center; gap:10px; margin-top:14px; font-weight:600; }
+.chk input { width:22px; height:22px; }
+#out { width:100%; border-radius:16px; margin-top:16px; display:none; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+.acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+</style>
+<div class="card">
+<label for="nome">Come ti chiami?</label><input id="nome" maxlength="30" placeholder="Il tuo nome">
+<div class="row"><div><label for="eta">Quanti anni hai?</label><input id="eta" inputmode="numeric" maxlength="3" placeholder="es. 7"></div>
+<div><label for="citta">Dove abiti?</label><input id="citta" maxlength="30" placeholder="La tua città"></div></div>
+<label for="testo">Cosa vuoi dire a Babbo Natale?</label>
+<textarea id="testo" maxlength="700" placeholder="Caro Babbo Natale, quest'anno vorrei…"></textarea>
+<label class="chk"><input type="checkbox" id="buono" checked> Quest'anno sono stato bravo/a ⭐</label>
+<div class="acts"><button class="btn" id="crea">✨ Crea la mia lettera</button></div>
+</div>
+<canvas id="cv" width="1080" height="1520" hidden></canvas>
+<img id="out" alt="La tua lettera a Babbo Natale">
+<div class="acts" id="acts" hidden><a class="btn" id="save" download="Lettera_a_Babbo_Natale.png">⬇️ Salva la lettera</a><button class="btn ghost" id="share">📲 Condividi</button><button class="btn ghost" onclick="print()">🖨️ Stampa</button></div>
+<p class="muted">La lettera resta sul tuo telefono: GenoTv non la invia e non la salva da nessuna parte.</p>
+
+<p class="foot">Un regalo del <b>Calendario dell'Avvento di GenoTv</b> · di Geno85<br>Torna nell'app per aprire la prossima casella 🎁</p>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+function wrap(ctx, text, x, y, maxW, lh, maxY) {
+  const paras = text.split(/\n/);
+  for (const p of paras) {
+    let line = "";
+    for (const w of p.split(/\s+/)) {
+      const t = line ? line + " " + w : w;
+      if (ctx.measureText(t).width > maxW && line) { ctx.fillText(line, x, y); y += lh; line = w; if (y > maxY) return y; }
+      else line = t;
+    }
+    ctx.fillText(line, x, y); y += lh; if (y > maxY) return y;
+  }
+  return y;
+}
+function draw() {
+  const c = $("cv"), ctx = c.getContext("2d"), W = c.width, H = c.height;
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, "#fff8e7"); g.addColorStop(1, "#f6e3bd");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  // bordo a caramella
+  for (let i = 0; i < 2 * (W + H) / 40; i++) {
+    ctx.fillStyle = i % 2 ? "#c62828" : "#ffffff"; const s = 40, k = i * s;
+    if (k < W) { ctx.fillRect(k, 0, s, 22); ctx.fillRect(W - k - s, H - 22, s, 22); }
+    if (k < H) { ctx.fillRect(0, k, 22, s); ctx.fillRect(W - 22, H - k - s, 22, s); }
+  }
+  ctx.strokeStyle = "#1e7a43"; ctx.lineWidth = 4; ctx.strokeRect(46, 46, W - 92, H - 92);
+  ctx.textAlign = "center"; ctx.fillStyle = "#b71c1c"; ctx.font = "bold 74px Georgia, serif";
+  ctx.fillText("Caro Babbo Natale", W / 2, 170);
+  ctx.font = "54px serif"; ctx.fillText("🎅  🎄  ⭐  🦌  🎁", W / 2, 260);
+  ctx.textAlign = "left"; ctx.fillStyle = "#2b2116"; ctx.font = "italic 40px Georgia, serif";
+  const nome = $("nome").value.trim() || "un bambino speciale", eta = $("eta").value.trim(), citta = $("citta").value.trim();
+  let y = 350;
+  ctx.fillText("Mi chiamo " + nome + (eta ? ", ho " + eta + " anni" : "") + (citta ? " e abito a " + citta : "") + ".", 100, y); y += 80;
+  ctx.font = "40px Georgia, serif";
+  y = wrap(ctx, $("testo").value.trim() || "Ti voglio tanto bene e ti aspetto la notte di Natale!", 100, y, W - 200, 58, H - 330);
+  if ($("buono").checked) { y += 30; ctx.fillStyle = "#1e7a43"; ctx.font = "bold 40px Georgia, serif"; ctx.fillText("⭐ Quest'anno sono stato bravo!", 100, Math.min(y, H - 280)); }
+  ctx.fillStyle = "#2b2116"; ctx.font = "italic 40px Georgia, serif"; ctx.textAlign = "right";
+  ctx.fillText("Con tanto affetto,", W - 100, H - 200); ctx.font = "bold 46px Georgia, serif"; ctx.fillText(nome, W - 100, H - 140);
+  ctx.textAlign = "center"; ctx.fillStyle = "#8a7a5a"; ctx.font = "24px system-ui, sans-serif";
+  ctx.fillText("Calendario dell'Avvento di GenoTv · " + new Date().getFullYear(), W / 2, H - 70);
+  const url = c.toDataURL("image/png");
+  $("out").src = url; $("out").style.display = "block"; $("save").href = url; $("acts").hidden = false;
+  $("out").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+$("crea").onclick = draw;
+$("share").onclick = async () => {
+  try { const b = await (await fetch($("cv").toDataURL("image/png"))).blob(); const f = new File([b], "Lettera_a_Babbo_Natale.png", { type: "image/png" });
+    if (navigator.canShare && navigator.canShare({ files: [f] })) await navigator.share({ files: [f], title: "La mia lettera a Babbo Natale" });
+    else alert("Salva la lettera e poi mandala da WhatsApp o dalla Galleria.");
+  } catch (e) {}
+};
+</script>
+</body>
+</html>

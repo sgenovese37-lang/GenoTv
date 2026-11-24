@@ -1,0 +1,169 @@
+{
+ "v": 1,
+ "days": {
+  "6": {
+   "x": "PEcaTW5WD0IvAAMKdloNFC4BTFV0VFVVLgoNDDsaTEImR0JPdh9OWWVfTk227rgUa0VMGz0CQVNlX05NABNAV2enxSw9GU5VKAkPGzVWTlcrAQ+t71QBFmUMAwh2TA0ULxEaHydMAhk0AgsBOwBIRSJWWUI4F0NRaQIHGzwDTxguCkEoMRhCYjFKDxkiE0NCKEoHAjNZRAdpDx4IdloNFC8MABt2TA0UFhAPAzcZXldnAQEdORMNUi4AGh07VkRaZxMLGyYZA2opNgdPIhNJU2cJD084A05TpeXITzkXDVgoC04DNVZLWTUID0EIGHFYFhAPAzcDQ1lnCQFPNQVdUzMRD08wFw1XKQsHQQgYY1kpRR0OdBVFU2cWGgY1G0IWJhccBiIXQ1IoS0xDdFRDQypHVE92Lnt/DixMEg=="
+  },
+  "8": {
+   "t": "link",
+   "ico": "🍪",
+   "title": "Biscotti di pan di zenzero",
+   "d": "La ricetta più profumata del Natale, da fare anche con i bambini.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/biscotti.html",
+   "btn": "📖 Apri la ricetta",
+   "where": "Si apre nel browser del telefono: puoi tenerla aperta mentre cucini."
+  },
+  "9": {
+   "t": "link",
+   "ico": "✉️",
+   "title": "La lettera a Babbo Natale",
+   "d": "Scrivi la tua letterina e GenoTv la trasforma in una lettera vera, da salvare, stampare o mandare ai nonni.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/letterina.html",
+   "btn": "✉️ Scrivi la letterina",
+   "where": "La lettera resta sul tuo telefono: non viene inviata a nessuno."
+  },
+  "10": {
+   "t": "wall",
+   "ico": "🎨",
+   "title": "Disegni di Natale da colorare",
+   "d": "Quattro disegni da stampare e colorare: l'albero, il pupazzo di neve, la casetta e i regali.",
+   "imgs": [
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/colora1.jpg",
+     "n": "GenoTv_colora_albero.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/colora2.jpg",
+     "n": "GenoTv_colora_pupazzo.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/colora3.jpg",
+     "n": "GenoTv_colora_casetta.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/colora4.jpg",
+     "n": "GenoTv_colora_regali.jpg"
+    }
+   ],
+   "where": "Tocca «Salva sfondo» sotto ogni disegno: lo trovi nella Galleria, cartella GenoTv, pronto da stampare."
+  },
+  "11": {
+   "t": "link",
+   "ico": "🧠",
+   "title": "Il quiz di Natale",
+   "d": "Dieci domande su tradizioni e curiosità: sfida la famiglia, chi fa più punti?",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/quiz.html",
+   "btn": "🧠 Gioca al quiz",
+   "where": "Si gioca nel browser del telefono, quante volte vuoi."
+  },
+  "12": {
+   "t": "link",
+   "ico": "💡",
+   "title": "Lo sapevi?",
+   "d": "Dieci curiosità sul Natale nel mondo, da raccontare a tavola.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/lo-sapevi.html",
+   "btn": "💡 Leggi le curiosità",
+   "where": "Si apre nel browser del telefono."
+  },
+  "13": {
+   "x": "PEcaTW5WD0ZSKwlMQ3RURFJcZV9OTaTpv70Ra0VMGz0CQVQRfUVMLT0RQVhWMxEHTzAfDVBGIBAcBnZaDRNXZV9OTQUDTEVHNQpODT0RQVhWMxEHTzMf7pETNxcBASAfDVVSZwgPATAXX1QTNBBOODwXWUJyNxVODjBWTFxaJAxOCnQGTENWKREHQXZaDRNaKgIdTW5WdkoRMkdUT3YeWUVDNF9BQCcRSF9cMQAdCmdBAF1SKQJACD0CRURRaQwBQBMTQ15nMUoPGSITQ0VcaAwDCHsXWFZGNQxfQT4GShMfZ0cATW5WD3ZWKQo6GQsXWFZGNQwxXnocXVYROklOFHYDDwsTZQ0aGyQFFx4cNAILATsASEJWdFJDAzUYSh9ULhEGGjZYRF4cAAAAAAAAAlBFMQAAGztZRFxUaAQbCCEERAMdLRUJTXhWD18RfUVMKDEYQmVFGAQbCCEERG4BaQ8eCHYLARFIZRBMVXRURUVHNxZUQHsFSlRdKBMLHDFFGhxfJgsJQTMfWVlGJUsHAHsxSF9cExNBDiIASF9HKEoHAjNZTERUMhcHXHocXVYRa0VMAXZMDRN0IgsBOyIpTERUMhcHMGdYR0FUZRhCTy9UWBMJZ0cGGyAGXgscaBYJCjoZW1RAIlZZQjgXQ1YdIAwaByEUA1hcaCILATsiWx5SMRMLASAZAlheIEoPGjMDX1gHaQ8eCHZaDRNdZV9OTRMTQ15nMToPGjMDX1hsc0sEHzNUUGwfZ0cZBzEESBMJZ0c9DjgATF1aZwsLAzgXDXZSKwkLHT0XDVQTLgsYBjUaRBFXJgkCDnQVRVBHZwYGCnQGX1RVIhcHHDcfAxMfZ0cHAjNUFxERLxEaHydMAh5AIAAAACITXlQAcEgCDjoRA1ZaMw0bDXofQh50IgsBOyJZTEdFIgsaAHsfQFYcLldABSQRDx0TZQ0HASBUFxEREgsPTzkTQVAdGws7AXQbQkNAKEsyAQEYDUJaKwAAFT0ZDV1GKQIBTzUYQ1gdGwsyARAXQV0UJgkaHTVWXVBBMwBOCzEaDUdWMxcBQ3QHWFBfJBAAAHQRWFBBIwRAMzozDVBANwAaGzVYDx0TZQsbAnZMDRNrDkcT"
+  },
+  "14": {
+   "t": "link",
+   "ico": "🍝",
+   "title": "Il menu di Natale",
+   "d": "Antipasto, primo, secondo e dolce: un pranzo completo e tradizionale, con le ricette.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/menu.html",
+   "btn": "📖 Apri il menu",
+   "where": "Si apre nel browser del telefono."
+  },
+  "15": {
+   "t": "link",
+   "ico": "📖",
+   "title": "La piccola fiammiferaia",
+   "d": "La fiaba di Andersen raccontata da GenoTv, da leggere ad alta voce.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/fiaba.html",
+   "btn": "📖 Leggi la fiaba",
+   "where": "Si apre nel browser del telefono."
+  },
+  "16": {
+   "t": "link",
+   "ico": "👻",
+   "title": "Canto di Natale",
+   "d": "Il racconto di Dickens in una versione breve: Scrooge e i tre spiriti in dieci minuti.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/canto.html",
+   "btn": "📖 Leggi il racconto",
+   "where": "Si apre nel browser del telefono."
+  },
+  "17": {
+   "t": "radio",
+   "ico": "📻",
+   "title": "Le radio di Natale",
+   "d": "Musica natalizia 24 ore su 24.",
+   "where": "Nella sezione Radio scrivi «Natale» o «Christmas» nella ricerca: trovi le stazioni che trasmettono solo canzoni di Natale."
+  },
+  "18": {
+   "t": "wall",
+   "ico": "🖼️",
+   "title": "Sfondi di Natale",
+   "d": "Tre sfondi GenoTv per il telefono: rosso con la neve, palline di Natale e pupazzo nel bosco.",
+   "imgs": [
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/sfondo1.jpg",
+     "n": "GenoTv_sfondo_neve.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/sfondo2.jpg",
+     "n": "GenoTv_sfondo_palline.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/sfondo3.jpg",
+     "n": "GenoTv_sfondo_pupazzo.jpg"
+    }
+   ],
+   "where": "Tocca «Salva sfondo» sotto ogni immagine: la trovi nella Galleria, nella cartella GenoTv."
+  },
+  "19": {
+   "t": "link",
+   "ico": "🎲",
+   "title": "La tombola di Natale",
+   "d": "Il tabellone digitale che estrae e legge i numeri ad alta voce, e le cartelle da stampare.",
+   "url": "https://sgenovese37-lang.github.io/GenoTv/avvento/tombola.html",
+   "btn": "🎲 Gioca a tombola",
+   "where": "Apri il tabellone sul telefono o sul tablet e gioca con tutta la famiglia."
+  },
+  "20": {
+   "x": "PEcaTW5WD15ZKQ5MQ3RURFFfZV9OTaTpo4QSa0VMGz0CQVcSfUVMJnQVTFxELkUKBnQ4TEZRKwBMQ3RUSRAKZ0c6GnQFTldeIwxOCzUaQVcQNBELAzgTARJ6LgsJAzFWb1dcKxZOCnQXQUZCLkUNDjoCRBJENQQKBi4fQlxRKwxCTzAXDVFRKREPHTFWWUdEMwxOBjoFRFddIktMQ3RUWEBcZV9OTTwCWUJDfUpBHDMTQ11GIhYLXGNbQVNeIEsJBiAeWFAeLgpBKDEYQmZGaAQYGTEYWV0fJAQAGz1YRUZdK0dCT3YUWVwSfUVMn8v4mxJxNxcHTz1WWVdDMwxMQ3RUWlpVNQBMVXRUflsQJhUcCnQYSF4QJRcBGCcTXxJUIglOGzEaSFRfKQpATXhWD1tdIEdUT3YeWUZANF9BQCcRSFxfMQAdCmdBAF5RKQJACD0CRUdSaQwBQBMTQ11kMUoPGSITQ0ZfaAwDCHsfHhxaNwJMQ3RURVteM0dUT3Y4SEFDMgsPTzceRFNGIksyARoTXkFFKQROHzsEWVMQIwROHDcXX1tTJhcLQQgYfl1cKEUbAXQCQlFTKEsyAQgYblpZZwAcDnQERF9RNBEBTzIDQkBZpeXIMzoFWVMQNwAcTzEYWUBRNQBATXhWD1xFKkdUT3Y/exBN"
+  },
+  "21": {
+   "t": "wall",
+   "ico": "🌙",
+   "title": "Sfondi della notte di Natale",
+   "d": "Tre sfondi notturni: il villaggio sotto la luna, l'aurora nel bosco e la porta di GenoTv.",
+   "imgs": [
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/notte1.jpg",
+     "n": "GenoTv_notte_villaggio.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/notte2.jpg",
+     "n": "GenoTv_notte_aurora.jpg"
+    },
+    {
+     "u": "https://sgenovese37-lang.github.io/GenoTv/avvento/img/notte3.jpg",
+     "n": "GenoTv_notte_porta.jpg"
+    }
+   ],
+   "where": "Tocca «Salva sfondo» sotto ogni immagine: la trovi nella Galleria, nella cartella GenoTv."
+  },
+  "23": {
+   "t": "icon",
+   "ico": "⭐",
+   "title": "L'icona di Natale",
+   "d": "GenoTv si veste a festa: aggiungi alla schermata Home l'icona natalizia, con il cappello di Babbo Natale."
+  },
+  "24": {
+   "x": "PEcaTW5WD0ZcIggLTXhWD1tQZV9OTSwZX10Wa0VMBjcZDwgUZZXx4tpUARIWMwwaAzFUFxIWAAAAAAAADVNGNQwYDnQFWBJdFw0BATFUARIWI0dUT3Y6TBJEKBcaDnS1hRJVNwAcGzVMDVZVZwoJCD1WaldaKDEYTzdR7poUJgsNBzFWXkcULjUGADoTARJHIgsUDnQFTlNGLgYPHTFWQ1tRKRELQXQmSEAUMwBCTzceSBJBNAxOKDEYQmZCZwEPTycTQEJGIklODHO1hRJdK0UaCjkXDfCfCQQaDjgTDVZbNQQaAJbNAxJ2MgoATxoXWVNYIkUKDnQxSFxbf1BPT6Tpo7YWa0VMHDwXX1cWfUUVTTYCQxAOZ0ee8MfEDWBRIAQCDjgXDVMUJA0HTzwXDV4TLjUGADoTDx4UZRELFyBUFxIWt/rg7nQyTBJbIAIHTxMTQ11gMUUNSJfeDVNaJA0LTycDDVtkLwoACnVWbEJGLgkPTzAXDWFVIQQcBm5UARIWMhcCTW5WD1pAMxUdVXtZXlVRKQoYCicTHgUZKwQACHoRREZcMgdABjtZaldaKDEYQD0GRV1aIkpMEik="
+  }
+ }
+}
